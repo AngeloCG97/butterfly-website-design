@@ -12,7 +12,7 @@ permissions:
   id-token: write
 
 concurrency:
-  group: "pages"
+  group: pages
   cancel-in-progress: true
 
 jobs:
@@ -26,15 +26,10 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: yarn
-
-      - name: Enable Corepack
-        run: corepack enable
+          cache: npm
 
       - name: Install dependencies
-        run: |
-          rm -f yarn.lock
-          npm install
+        run: npm ci
 
       - name: Build project
         run: npm run build
@@ -43,7 +38,9 @@ jobs:
         uses: actions/configure-pages@v5
 
       - name: Verify export output
-        run: test -d ./out && echo "Static export generated" || { echo "Missing ./out directory"; exit 1; }
+        run: |
+          test -d ./out || { echo "Missing ./out directory"; exit 1; }
+          find ./out -maxdepth 2 -type f | head
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
