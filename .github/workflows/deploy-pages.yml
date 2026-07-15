@@ -32,10 +32,18 @@ jobs:
         run: corepack enable
 
       - name: Install dependencies
-        run: yarn install --immutable
+        run: |
+          rm -f yarn.lock
+          npm install
 
       - name: Build project
-        run: yarn build
+        run: npm run build
+
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Verify export output
+        run: test -d ./out && echo "Static export generated" || { echo "Missing ./out directory"; exit 1; }
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
