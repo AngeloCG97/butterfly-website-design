@@ -79,8 +79,8 @@ export default function Footer() {
               Contacto
             </Typography>
             <Stack spacing={1}>
-              <Typography variant="body2">+506 8888-8033</Typography>
-              <Typography variant="body2">ventas@crisalidascr.com</Typography>
+              <Typography variant="body2">+506 7180-7494</Typography>
+              <Typography variant="body2">agricolahuetares@gmail.com</Typography>
               <Typography variant="body2">Región Huetar, Costa Rica</Typography>
             </Stack>
           </Grid>

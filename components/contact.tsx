@@ -14,8 +14,8 @@ import EmailIcon from "@mui/icons-material/Email"
 import PlaceIcon from "@mui/icons-material/Place"
 
 const contactInfo = [
-  { icon: PhoneIcon, label: "Teléfono", value: "+506 8888-8033" },
-  { icon: EmailIcon, label: "Correo", value: "ventas@crisalidascr.com" },
+  { icon: PhoneIcon, label: "Teléfono", value: "+506 7180-7494" },
+  { icon: EmailIcon, label: "Correo", value: "agricolahuetares@gmail.com" },
   { icon: PlaceIcon, label: "Ubicación", value: "Región Huetar, Costa Rica" },
 ]
 
@@ -45,7 +45,7 @@ export default function Contact() {
     setSent(false)
 
     try {
-      const response = await fetch("https://formsubmit.co/ajax/angelocas13_8@hotmail.com", {
+      const response = await fetch("https://formsubmit.co/ajax/agricolahuetares@gmail.com", {
         method: "POST",
         headers: {
           "Content-Type": "application/x-www-form-urlencoded",
