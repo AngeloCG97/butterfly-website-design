@@ -21,11 +21,49 @@ const contactInfo = [
 
 export default function Contact() {
   const [sent, setSent] = useState(false)
+  const [sending, setSending] = useState(false)
+  const [error, setError] = useState(false)
 
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
-    setSent(true)
-    e.currentTarget.reset()
+
+    const form = e.currentTarget
+    const formData = new FormData(form)
+    const payload = {
+      name: String(formData.get("name") ?? ""),
+      email: String(formData.get("email") ?? ""),
+      phone: String(formData.get("phone") ?? ""),
+      species: String(formData.get("species") ?? ""),
+      message: String(formData.get("message") ?? ""),
+      _subject: "Nueva solicitud de contacto desde Crisálidas Huetares",
+      _captcha: "false",
+      _template: "table",
+    }
+
+    setSending(true)
+    setError(false)
+    setSent(false)
+
+    try {
+      const response = await fetch("https://formsubmit.co/ajax/angelocas13_8@hotmail.com", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+        body: new URLSearchParams(payload).toString(),
+      })
+
+      if (!response.ok) {
+        throw new Error("No se pudo enviar el formulario")
+      }
+
+      setSent(true)
+      form.reset()
+    } catch {
+      setError(true)
+    } finally {
+      setSending(false)
+    }
   }
 
   return (
@@ -87,6 +125,11 @@ export default function Contact() {
                   ¡Gracias! Hemos recibido tu solicitud y te contactaremos pronto.
                 </Alert>
               )}
+              {error && (
+                <Alert severity="error" sx={{ mb: 3 }} onClose={() => setError(false)}>
+                  No se pudo enviar el mensaje en este momento. Intenta de nuevo más tarde.
+                </Alert>
+              )}
               <Grid container spacing={2}>
                 <Grid size={{ xs: 12, sm: 6 }}>
                   <TextField label="Nombre completo" name="name" fullWidth required />
@@ -104,8 +147,8 @@ export default function Contact() {
                   <TextField label="Mensaje" name="message" fullWidth required multiline rows={4} />
                 </Grid>
                 <Grid size={{ xs: 12 }}>
-                  <Button type="submit" variant="contained" color="primary" size="large" fullWidth>
-                    Enviar solicitud
+                  <Button type="submit" variant="contained" color="primary" size="large" fullWidth disabled={sending}>
+                    {sending ? "Enviando..." : "Enviar solicitud"}
                   </Button>
                 </Grid>
               </Grid>
