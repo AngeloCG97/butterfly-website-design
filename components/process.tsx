@@ -56,7 +56,7 @@ export default function Process() {
                   sx={{
                     height: "100%",
                     p: 4,
-                    borderRadius: 4,
+                    borderRadius: 2,
                     bgcolor: "background.paper",
                     border: "1px solid",
                     borderColor: "divider",

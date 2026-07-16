@@ -80,7 +80,7 @@ export default function Contact() {
             <Box
               component="form"
               onSubmit={handleSubmit}
-              sx={{ p: { xs: 3, md: 4 }, borderRadius: 4, bgcolor: "background.paper", boxShadow: 4 }}
+              sx={{ p: { xs: 3, md: 4 }, borderRadius: 2, bgcolor: "background.paper", boxShadow: 4 }}
             >
               {sent && (
                 <Alert severity="success" sx={{ mb: 3 }} onClose={() => setSent(false)}>

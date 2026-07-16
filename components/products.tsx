@@ -69,7 +69,7 @@ export default function Products() {
                   height: "100%",
                   display: "flex",
                   flexDirection: "column",
-                  borderRadius: 4,
+                  borderRadius: 2,
                   transition: "transform .25s ease, box-shadow .25s ease",
                   "&:hover": { transform: "translateY(-6px)", boxShadow: 10 },
                 }}

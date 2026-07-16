@@ -95,7 +95,7 @@ export default function Sustainability() {
             <Box
               sx={{
                 position: "relative",
-                borderRadius: 4,
+                borderRadius: 2,
                 overflow: "hidden",
                 aspectRatio: "4 / 5",
                 boxShadow: 8,
