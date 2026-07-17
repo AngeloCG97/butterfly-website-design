@@ -19,6 +19,11 @@ const cormorant = Cormorant_Garamond({
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://crisalidascr.com'),
+  icons: {
+    icon: '/favicon.ico',
+    shortcut: '/favicon.ico',
+    apple: '/apple-icon.png',
+  },
   title: {
     default: 'Crisálidas Huetares | Cría y venta de mariposas en Costa Rica',
     template: '%s | Crisálidas Huetares',
