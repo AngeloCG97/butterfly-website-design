@@ -101,7 +101,7 @@ export default function LegalCompliance() {
             <Typography
               sx={{ color: "text.secondary", mb: 2, lineHeight: 1.8 }}
             >
-              Crisálidas Huetares opera como una PYMPA autorizada en Costa Rica,
+              Crisálidas Huetares opera como una PYME y PYMPA autorizada en Costa Rica,
               lo que demuestra que la empresa cumple con las regulaciones
               exigidas por la normativa costarricense para desarrollar esta
               actividad económica de forma responsable y legal.
