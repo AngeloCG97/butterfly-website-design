@@ -6,7 +6,7 @@ import Stack from "@mui/material/Stack"
 
 const stats = [
   { value: "+10", label: "Especies tropicales" },
-  { value: "+2", label: "Años de experiencia" },
+  { value: `+${new Date().getFullYear() - 2025}`, label: "Años de experiencia" },
   { value: "100%", label: "Cría sostenible" },
   { value: "🇨🇷", label: "Hecho en Costa Rica" },
 ]
@@ -22,7 +22,7 @@ export default function About() {
                 position: "relative",
                 borderRadius: 2,
                 overflow: "hidden",
-                aspectRatio: "4 / 3",
+                aspectRatio: "4 / 4",
                 boxShadow: 6,
                 backgroundImage: "url(/mariposario.png)",
                 backgroundSize: "cover",
